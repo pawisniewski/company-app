@@ -50,7 +50,7 @@ exports.put = async (req, res) => {
   try {
     const emp = await(Employee.findById(req.params.id));
     if(emp) {
-      await Employee.updateOne({ _id: req.params.id }, { $set: { firstname: firstName, lastName: lastName, empartment: department }});
+      await Employee.updateOne({ _id: req.params.id }, { $set: { firstname: firstName, lastName: lastName, department: department }});
       res.json(emp);
     }
     else res.status(404).json({ message: 'Not found...' });
